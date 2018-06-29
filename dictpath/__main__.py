@@ -1,7 +1,9 @@
 from dictpath import dictpath
 import sys, json
+import pprint
 
 if __name__ == '__main__':
     d = json.loads(sys.stdin.read())
-    print(dictpath(d).explore())
+    pp = pprint.PrettyPrinter(indent=1)
+    pp.pprint(dictpath(d).explore())
 
