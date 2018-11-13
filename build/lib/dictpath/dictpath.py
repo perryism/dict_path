@@ -33,10 +33,12 @@ class dictpath:
 
             parts = mapper.split('/')
             if len(parts) > 1:
+                #print type(js[parts[0]])
                 return self._path('/'.join(parts[1:]), js[parts[0]])
             else:
                 return js[parts[0]]
         except:
+            #print("Unexpected error:", sys.exc_info()[0])
             print(mapper, js)
             return None
 
