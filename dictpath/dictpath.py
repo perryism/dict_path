@@ -3,23 +3,23 @@ class dictpath:
     def __init__(self, d):
         self.d = d
 
-	'''
-	Return roughly the structure of a dictionary
-	'''
+    '''
+    Return roughly the structure of a dictionary
+    '''
     def explore(self, absolute_path=True):
         key_gen = self._keygen(absolute_path)
         return self._explore(self.d, {}, '', key_gen)
 
-	'''
-	Return the values according to the mapper
-	eg
-	{
-	    'a': 3
-		'b': { 'c' : 3 }
-	}
-	To get 'c' in 'b',
-	.path({'c': 'b/c' })
-	'''
+    '''
+    Return the values according to the mapper
+    eg
+    {
+        'a': 3
+        'b': { 'c' : 3 }
+    }
+    To get 'c' in 'b',
+    .path({'c': 'b/c' })
+    '''
     def path(self, mapper):
         return dict(map(lambda m: [m[0], self._path(m[1], self.d)], mapper.iteritems()))
 
@@ -39,7 +39,7 @@ class dictpath:
                 return js[parts[0]]
         except:
             #print("Unexpected error:", sys.exc_info()[0])
-            print mapper, js
+            print(mapper, js)
             return None
 
     def query(self, q):
@@ -47,7 +47,7 @@ class dictpath:
 
     def _keygen(self, absolute_path):
         if absolute_path:
-			return lambda parent, key: "%s%s"%(parent if len(parent)==0 else "%s/"%parent, key)
+            return lambda parent, key: "%s%s"%(parent if len(parent)==0 else "%s/"%parent, key)
         else:
             return lambda parent, key: key
 
