@@ -21,7 +21,7 @@ class dictpath:
     .path({'c': 'b/c' })
     '''
     def path(self, mapper):
-        return dict(map(lambda m: [m[0], self._path(m[1], self.d)], mapper.iteritems()))
+        return dict(map(lambda m: [m[0], self._path(m[1], self.d)], mapper.items()))
 
     def _path(self, mapper, js):
         if type(js) == list:

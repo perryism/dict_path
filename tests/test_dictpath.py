@@ -62,7 +62,7 @@ class TestDictPath(unittest.TestCase):
               }
 
         self.assertEqual(dictpath(d).query('level1d'),  [ { 'level2': 'value' }, {'level2': 'other value'} ])
-        self.assertEqual(dictpath(d).query('level1d/level2'),  ['value', 'other value'])
+        self.assertEqual(list(dictpath(d).query('level1d/level2')),  ['value', 'other value'])
         self.assertEqual(dictpath(d).query('level1e/level2'), 'anthony')
 
 if __name__ == '__main__':

@@ -1,2 +1,1 @@
-from test_dictpath import TestDictPath
-from test_jsonpath import TestJsonPath
+from .test_dictpath import TestDictPath
