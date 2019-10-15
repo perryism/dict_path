@@ -6,15 +6,15 @@ from dictpath import dictpath
 class TestDictPath(unittest.TestCase):
     def test_explore(self):
         d = { 'level1a': 'string'}
-        self.assertEqual(dictpath(d).explore(), { 'level1a': str })
+        self.assertEqual(dictpath(d).explore(), { 'level1a': 'str' })
 
         d = { 'level1a': 'string',
               'level1b': 1,
               'level1c': [1 ,2 ,3],
               }
-        self.assertEqual(dictpath(d).explore(), { 'level1a': str ,
-                                                  'level1b': int ,
-                                                  'level1c[]': [int]})
+        self.assertEqual(dictpath(d).explore(), { 'level1a': 'str' ,
+                                                  'level1b': 'int' ,
+                                                  'level1c[]': ['int']})
 
         d = { 'level1a': 'string',
               'level1b': 1,
@@ -24,11 +24,11 @@ class TestDictPath(unittest.TestCase):
               }
         self.assertEqual(dictpath(d).explore(),
                 {
-                  'level1a': str ,
-                  'level1b': int ,
-                  'level1c[]': [int],
-                  'level1d': { 'level1d/level2': str},
-                  'level1e': { 'level1e/level2': { 'level1e/level2/level3': int } }
+                  'level1a': 'str' ,
+                  'level1b': 'int' ,
+                  'level1c[]': ['int'],
+                  'level1d': { 'level1d/level2': 'str'},
+                  'level1e': { 'level1e/level2': { 'level1e/level2/level3': 'int' } }
                 })
 
     def test_path(self):

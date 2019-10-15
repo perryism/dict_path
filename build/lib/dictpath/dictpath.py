@@ -62,15 +62,15 @@ class dictpath:
                     if type(json[key][0]) is dict:
                         t = self._explore(json[key][0], {}, k, key_gen)
                     else:
-                        t = type(json[key][0])
+                        t = type(json[key][0]).__name__
                 else:
-                    t = type(json[key])
+                    t = type(json[key]).__name__
                 h[k].append(t)
 
             elif type(json[key]) == dict:
                 h[k] = {}
                 self._explore(json[key], h[k], k, key_gen)
             else:
-                h[k] = type(json[key])
+                h[k] = type(json[key]).__name__
         return h
 
